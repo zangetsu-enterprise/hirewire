@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — HireWire</title>
+<meta name="description" content="Post your AI job on HireWire: $149 for 30 days, $299 featured. Reach engineers who build AI.">
+<style>
+:root{--bg:#0a0f1e;--card:#111a2f;--accent:#38e1c6;--accent2:#7c6cf0;--text:#eef2ff;--muted:#8b94b8;--line:#1e2a4d}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+header{border-bottom:1px solid var(--line);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+.logo{font-size:1.6rem;font-weight:800}.logo span{color:var(--accent)}
+nav a{margin-left:22px;font-weight:600;color:var(--text);font-size:.95rem}
+nav a.cta{background:var(--accent);color:#06121a;padding:9px 20px;border-radius:8px}
+.wrap{max-width:1100px;margin:0 auto;padding:56px 24px}
+h1{text-align:center;font-size:2.4rem;letter-spacing:-1px}
+.sub{text-align:center;color:var(--muted);margin:12px 0 40px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:48px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px;text-align:center}
+.plan.featured{border:2px solid var(--accent);position:relative}
+.plan .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#06121a;font-size:.75rem;font-weight:800;padding:4px 16px;border-radius:12px;text-transform:uppercase}
+.plan h2{font-size:1.3rem;margin-bottom:6px}
+.plan .price{font-size:2.6rem;font-weight:800;margin:10px 0}
+.plan .per{color:var(--muted);font-size:.9rem}
+.plan ul{list-style:none;margin:22px 0;text-align:left}
+.plan li{padding:8px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.95rem}
+.plan li b{color:var(--text)}
+.btn{display:inline-block;background:var(--accent);color:#06121a;font-weight:800;padding:13px 34px;border-radius:10px;font-size:1.05rem;margin-top:10px}
+.pay{max-width:700px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px}
+.pay h2{text-align:center;margin-bottom:16px;font-size:1.4rem}
+.pay .row{background:#0d1530;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:12px;font-size:.95rem}
+.pay .row b{color:var(--accent)}
+.pay code{background:#000;padding:6px 10px;border-radius:6px;font-size:.85rem;word-break:break-all;color:#ffd479;display:block;margin-top:8px}
+.warn{color:#ffb454;font-size:.85rem;text-align:center;margin-top:10px}
+footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:.85rem;max-width:1100px;margin:40px auto 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Hire<span>Wire</span></div>
+  <nav><a href="index.html">Jobs</a><a href="pricing.html">Pricing</a><a href="post.html" class="cta">Post a Job — $149</a></nav>
+</header>
+<div class="wrap">
+  <h1>Simple pricing. Real candidates.</h1>
+  <p class="sub">One hire through HireWire costs less than 1% of what a recruiter charges for the same AI engineer.</p>
+  <div class="plans">
+    <div class="plan">
+      <h2>Single Post</h2>
+      <div class="price">$149</div>
+      <div class="per">per job · 30 days live</div>
+      <ul>
+        <li><b>30 days</b> on the board</li>
+        <li>Applications go straight to <b>your inbox</b></li>
+        <li>Indexed by Google Jobs</li>
+        <li>Shared with our candidate list</li>
+      </ul>
+      <a class="btn" href="post.html?plan=single">Post a Job</a>
+    </div>
+    <div class="plan featured">
+      <div class="badge">Best value</div>
+      <h2>Featured Post</h2>
+      <div class="price">$299</div>
+      <div class="per">per job · 30 days live</div>
+      <ul>
+        <li>Everything in Single, <b>plus:</b></li>
+        <li><b>Pinned to the top</b> of the board for 30 days</li>
+        <li><b>Highlighted</b> listing card + "Featured" badge</li>
+        <li>Priority placement in candidate emails</li>
+        <li>Company logo shown on the board</li>
+      </ul>
+      <a class="btn" href="post.html?plan=featured">Post Featured</a>
+    </div>
+  </div>
+
+  <div class="pay">
+    <h2>How to pay</h2>
+    <div class="row">
+      <b>1 · PayPal</b> — send <b>$149</b> (Single) or <b>$299</b> (Featured) to:<br>
+      <code>chachiafk@gmail.com</code>
+    </div>
+    <div class="row">
+      <b>2 · Crypto (USDT)</b> — send the exact amount to:<br>
+      <code>0xb2a38e074808f0c0d4ee9c13f5894c6c601fb172</code>
+    </div>
+    <div class="warn">⚠️ USDT — BSC / BEP20 network ONLY. Sending on another network will lose your funds.</div>
+    <p style="margin-top:16px;color:var(--muted);font-size:.9rem;text-align:center">After paying, submit the job form with your transaction ID — your post goes live within 24h.</p>
+  </div>
+</div>
+<footer><p>HireWire — operated by <strong>Chachi</strong>. <a href="index.html">Jobs</a> · <a href="post.html">Post a Job</a></p></footer>
+</body>
+</html>

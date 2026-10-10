@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HireWire — AI Jobs, Curated for People Who Build the Future</title>
+<meta name="description" content="The niche job board for AI roles: machine learning engineers, LLM engineers, AI researchers, data scientists. Post your AI job for $149/30 days.">
+<style>
+:root{--bg:#0a0f1e;--card:#111a2f;--accent:#38e1c6;--accent2:#7c6cf0;--text:#eef2ff;--muted:#8b94b8;--line:#1e2a4d}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+header{border-bottom:1px solid var(--line);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto}
+.logo{font-size:1.6rem;font-weight:800;letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+nav a{margin-left:22px;font-weight:600;color:var(--text);font-size:.95rem}
+nav a.cta{background:var(--accent);color:#06121a;padding:9px 20px;border-radius:8px}
+.hero{max-width:1100px;margin:0 auto;padding:64px 24px 32px;text-align:center}
+.hero h1{font-size:2.6rem;letter-spacing:-1px;line-height:1.15}
+.hero h1 .hl{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:640px;margin:16px auto 0;font-size:1.08rem}
+.searchbar{max-width:700px;margin:30px auto 0;display:flex;gap:10px}
+.searchbar input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;color:var(--text);font-size:1rem}
+.searchbar input:focus{outline:2px solid var(--accent)}
+.filters{max-width:1100px;margin:26px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:8px 18px;cursor:pointer;font-size:.9rem}
+.filters button.active{background:var(--accent);color:#06121a;border-color:var(--accent);font-weight:700}
+.jobs{max-width:1100px;margin:0 auto;padding:24px;display:grid;gap:16px}
+.job{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;justify-content:space-between;gap:18px;align-items:flex-start;transition:transform .15s,border-color .15s}
+.job:hover{transform:translateY(-2px);border-color:var(--accent)}
+.job .co{font-size:.8rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.job h3{font-size:1.2rem;margin:4px 0 6px}
+.job .meta{color:var(--muted);font-size:.9rem}
+.job .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;background:#0d1530;border:1px solid var(--line);border-radius:6px;padding:3px 10px;color:var(--muted)}
+.tag.pay{color:var(--accent);border-color:var(--accent)}
+.apply{background:var(--accent);color:#06121a;font-weight:700;padding:10px 22px;border-radius:8px;white-space:nowrap;font-size:.95rem}
+.src{max-width:1100px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.85rem}
+.cta-band{max-width:1100px;margin:0 auto 40px;padding:0 24px}
+.cta-card{background:linear-gradient(135deg,#10213a,#1a1440);border:1px solid var(--line);border-radius:16px;padding:36px;text-align:center}
+.cta-card h2{font-size:1.7rem;margin-bottom:8px}
+.cta-card p{color:var(--muted);margin-bottom:20px}
+.btn{display:inline-block;background:var(--accent);color:#06121a;font-weight:800;padding:13px 34px;border-radius:10px;font-size:1.05rem}
+footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:.85rem;max-width:1100px;margin:0 auto}
+.empty{text-align:center;color:var(--muted);padding:40px}
+@media(max-width:700px){.job{flex-direction:column}.searchbar{flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Hire<span>Wire</span></div>
+  <nav>
+    <a href="index.html">Jobs</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="post.html" class="cta">Post a Job — $149</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>The job board for people who <span class="hl">build AI</span></h1>
+  <p>No noise, no 26,000-job haystacks. A curated corner for machine learning engineers, LLM engineers, AI researchers and data scientists — and the teams hiring them.</p>
+  <div class="searchbar">
+    <input type="text" id="q" placeholder="Search roles, companies, skills… (e.g. LLM, remote, senior)">
+  </div>
+</section>
+
+<div class="filters" id="filters">
+  <button class="active" data-f="all">All</button>
+  <button data-f="remote">Remote</button>
+  <button data-f="llm">LLM / GenAI</button>
+  <button data-f="ml">ML Engineering</button>
+  <button data-f="data">Data Science</button>
+  <button data-f="senior">Senior+</button>
+</div>
+
+<main class="jobs" id="jobs"></main>
+
+<div class="src">
+  Curated listings verified on 2026-10-09 from public job boards (Jobicy, RemoteOK, Y Combinator, Wellfound, MoAIJobs).
+  HireWire does not represent these employers — each "Apply" link goes to the original posting.
+</div>
+
+<section class="cta-band">
+  <div class="cta-card">
+    <h2>Hiring for an AI role?</h2>
+    <p>Reach engineers who actually build models. One post, 30 days, $149. Featured spotlight available.</p>
+    <a class="btn" href="post.html">Post a Job</a>
+  </div>
+</section>
+
+<footer>
+  <p>HireWire — curated AI job board. Operated by <strong>Chachi</strong>.</p>
+  <p><a href="pricing.html">Pricing</a> · <a href="post.html">Post a Job</a></p>
+</footer>
+
+<script>
+const JOBS = [
+  {co:"Gremlin", title:"Data Scientist, AI/ML", loc:"Remote (USA)", pay:"$220K–$290K/yr", tags:["remote","data","ml","senior"], src:"Jobicy · posted Oct 8, 2026", url:"https://jobicy.com/jobs/152746-data-scientist-ai-ml"},
+  {co:"Anthropic", title:"Data Scientist, Finance Forecasting", loc:"San Francisco / NYC", pay:"$270K–$320K/yr", tags:["data","senior"], src:"MoAIJobs", url:"https://www.moaijobs.com/"},
+  {co:"Fullscript", title:"Staff Machine Learning Engineer (LLM)", loc:"Remote", pay:"Senior comp", tags:["remote","ml","llm","senior"], src:"RemoteOK", url:"https://remoteok.com/remote-jobs/remote-staff-machine-learning-engineer-fullscript-1130924"},
+  {co:"MixMode", title:"Senior Machine Learning Engineer", loc:"Santa Barbara / Remote (US)", pay:"~$95K", tags:["remote","ml","senior"], src:"RemoteOK", url:"https://remoteok.com/remote-jobs/remote-machine-learning-engineer-mixmode-733941"},
+  {co:"Middleware (YC W23)", title:"Founding AI Engineer", loc:"San Francisco", pay:"$200K–$400K", tags:["llm","senior"], src:"Y Combinator Jobs", url:"https://www.ycombinator.com/jobs"},
+  {co:"Kindo", title:"Senior ML Engineer, Generative AI", loc:"Venice, CA / Remote", pay:"~$80K", tags:["remote","ml","llm","senior"], src:"RemoteOK", url:"https://remoteok.com/remote-jobs/remote-senior-ml-engineer-kindo-478755"},
+  {co:"Nuna", title:"Senior Software Engineer, AI", loc:"SF / Remote", pay:"~$85K", tags:["remote","llm","senior"], src:"RemoteOK", url:"https://remoteok.com/remote-jobs/remote-senior-software-engineer-ai-nuna-788021"},
+  {co:"Canva", title:"Senior ML Engineer, Agent Tools Interop", loc:"Remote (Australia)", pay:"Senior comp", tags:["remote","ml","llm","senior"], src:"MoAIJobs", url:"https://www.moaijobs.com/job/senior-machine-learning-engineer-agent-tools-interop-au-remote-canva-1687"},
+  {co:"Ezra AI Labs", title:"Founding Engineer (Voice AI)", loc:"Bay Area / Remote", pay:"Equity + salary", tags:["remote","llm"], src:"Wellfound", url:"https://wellfound.com/jobs/3300973-founding-engineer"},
+  {co:"Lemon.io", title:"Senior Data Scientist & Data Engineer, AI/ML", loc:"Remote", pay:"$5K–$8.5K/mo", tags:["remote","data","ml","senior"], src:"RemoteOK", url:"https://remoteok.com/remote-jobs/remote-data-scientist-data-engineer-ai-ml-lemon-io-613825"}
+];
+
+const jobsEl = document.getElementById("jobs");
+const qEl = document.getElementById("q");
+let filter = "all";
+
+function render(){
+  const q = qEl.value.trim().toLowerCase();
+  const list = JOBS.filter(j =>
+    (filter === "all" || j.tags.includes(filter)) &&
+    (!q || (j.co+" "+j.title+" "+j.loc).toLowerCase().includes(q))
+  );
+  jobsEl.innerHTML = list.length ? list.map(j => `
+    <div class="job">
+      <div>
+        <div class="co">${j.co}</div>
+        <h3>${j.title}</h3>
+        <div class="meta">${j.loc} · <strong>${j.pay}</strong> · via ${j.src}</div>
+        <div class="tags">${j.tags.map(t=>`<span class="tag">${t.toUpperCase()}</span>`).join("")}</div>
+      </div>
+      <a class="apply" href="${j.url}" target="_blank" rel="noopener">Apply →</a>
+    </div>`).join("")
+    : `<div class="empty">No jobs match. Try another keyword.</div>`;
+}
+qEl.addEventListener("input", render);
+document.getElementById("filters").addEventListener("click", e => {
+  if(e.target.tagName !== "BUTTON") return;
+  document.querySelectorAll("#filters button").forEach(b=>b.classList.remove("active"));
+  e.target.classList.add("active");
+  filter = e.target.dataset.f;
+  render();
+});
+render();
+</script>
+</body>
+</html>
